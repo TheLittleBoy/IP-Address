@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="IP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,82 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cco-M3-Y7x">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="N/A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rN5-Rr-wrA">
+                                        <rect key="frame" x="19" y="81" width="562" height="60"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="OyO-dP-B9r"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的ip地址：" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WO9-rS-Arf">
+                                        <rect key="frame" x="199" y="41" width="202" height="32"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="202" id="8aO-GP-6o7"/>
+                                            <constraint firstAttribute="height" constant="32" id="UJF-3G-uwz"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3Q-Nh-3PE">
+                                        <rect key="frame" x="190" y="501" width="221" height="91"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="221" id="Dlw-sf-hwD"/>
+                                            <constraint firstAttribute="height" constant="91" id="VKZ-N2-DkU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="点击刷新"/>
+                                        <connections>
+                                            <action selector="refreshButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PUX-sZ-hIA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="rN5-Rr-wrA" firstAttribute="leading" secondItem="Cco-M3-Y7x" secondAttribute="leading" constant="19" id="U4e-Ei-V47"/>
+                                    <constraint firstItem="M3Q-Nh-3PE" firstAttribute="centerX" secondItem="Cco-M3-Y7x" secondAttribute="centerX" id="Wga-ic-J58"/>
+                                    <constraint firstAttribute="bottom" secondItem="M3Q-Nh-3PE" secondAttribute="bottom" constant="8" id="cGE-nH-Hx1"/>
+                                    <constraint firstAttribute="trailing" secondItem="rN5-Rr-wrA" secondAttribute="trailing" constant="19" id="gFy-AV-qXi"/>
+                                    <constraint firstItem="rN5-Rr-wrA" firstAttribute="top" secondItem="Cco-M3-Y7x" secondAttribute="top" constant="81" id="gmt-5P-agU"/>
+                                    <constraint firstItem="WO9-rS-Arf" firstAttribute="centerX" secondItem="Cco-M3-Y7x" secondAttribute="centerX" id="jdH-0u-OT4"/>
+                                    <constraint firstItem="WO9-rS-Arf" firstAttribute="top" secondItem="Cco-M3-Y7x" secondAttribute="top" constant="41" id="rWo-4l-06l"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0Nn-mf-yfj">
+                                <rect key="frame" x="281" y="282" width="37" height="37"/>
+                                <animations/>
+                                <color key="color" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cco-M3-Y7x" secondAttribute="bottom" id="7ec-rE-FZ9"/>
+                            <constraint firstAttribute="trailing" secondItem="Cco-M3-Y7x" secondAttribute="trailing" id="Hkf-3u-Ew4"/>
+                            <constraint firstItem="Cco-M3-Y7x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Tkv-xd-O2V"/>
+                            <constraint firstItem="Cco-M3-Y7x" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="WgO-iY-5gi"/>
+                            <constraint firstItem="0Nn-mf-yfj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fOW-hQ-9P0"/>
+                            <constraint firstItem="0Nn-mf-yfj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hWc-nj-QgN"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="myActivityIndicatorView" destination="0Nn-mf-yfj" id="F6G-e3-Saa"/>
+                        <outlet property="myIpLabel" destination="rN5-Rr-wrA" id="Go0-gG-HEZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="452" y="448"/>
         </scene>
     </scenes>
 </document>
