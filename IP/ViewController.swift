@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var myIpLabel: UILabel!
     
+    @IBOutlet weak var myTextView: UITextField!
     @IBOutlet weak var myActivityIndicatorView: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class ViewController: UIViewController {
         request?.cancel()
         
         self.myIpLabel.text = "N/A"
+        self.myTextView.text = ""
         self.myActivityIndicatorView.startAnimating()
         
         request = Alamofire.request(.GET, myIpUrl).responseJSON{ response in
@@ -38,12 +40,22 @@ class ViewController: UIViewController {
             if let JSON = response.result.value {
                 print("JSON: \(JSON)")
                 
+                
                 if let data = JSON["data"] as? NSDictionary
                 {
                     let ip = data["ip"]
                     print("my ip is : \(ip)")
                     
                     self.myIpLabel.text = ip as? String
+                    
+                    var dataString = String()
+                    for (key,value) in data
+                    {
+                        dataString += "\(key)  :  \(value)\n"
+                    }
+                    
+                    self.myTextView.text = dataString
+
                 }
                 
                 self.myActivityIndicatorView.stopAnimating()

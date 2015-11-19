@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -38,7 +39,7 @@
                                             <constraint firstAttribute="height" constant="32" id="UJF-3G-uwz"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3Q-Nh-3PE">
@@ -54,13 +55,24 @@
                                             <action selector="refreshButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PUX-sZ-hIA"/>
                                         </connections>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Zx5-7M-j1U">
+                                        <rect key="frame" x="16" y="141" width="568" height="377"/>
+                                        <animations/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
                                 </subviews>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailingMargin" secondItem="Zx5-7M-j1U" secondAttribute="trailing" constant="8" id="HaR-HF-wg1"/>
+                                    <constraint firstItem="Zx5-7M-j1U" firstAttribute="top" secondItem="rN5-Rr-wrA" secondAttribute="bottom" id="LJ9-sY-4BU"/>
                                     <constraint firstItem="rN5-Rr-wrA" firstAttribute="leading" secondItem="Cco-M3-Y7x" secondAttribute="leading" constant="19" id="U4e-Ei-V47"/>
+                                    <constraint firstItem="Zx5-7M-j1U" firstAttribute="leading" secondItem="Cco-M3-Y7x" secondAttribute="leadingMargin" constant="8" id="VnW-Iq-MlC"/>
                                     <constraint firstItem="M3Q-Nh-3PE" firstAttribute="centerX" secondItem="Cco-M3-Y7x" secondAttribute="centerX" id="Wga-ic-J58"/>
                                     <constraint firstAttribute="bottom" secondItem="M3Q-Nh-3PE" secondAttribute="bottom" constant="8" id="cGE-nH-Hx1"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Zx5-7M-j1U" secondAttribute="bottom" constant="74" id="cgQ-2E-kTl"/>
                                     <constraint firstAttribute="trailing" secondItem="rN5-Rr-wrA" secondAttribute="trailing" constant="19" id="gFy-AV-qXi"/>
                                     <constraint firstItem="rN5-Rr-wrA" firstAttribute="top" secondItem="Cco-M3-Y7x" secondAttribute="top" constant="81" id="gmt-5P-agU"/>
                                     <constraint firstItem="WO9-rS-Arf" firstAttribute="centerX" secondItem="Cco-M3-Y7x" secondAttribute="centerX" id="jdH-0u-OT4"/>
@@ -87,6 +99,7 @@
                     <connections>
                         <outlet property="myActivityIndicatorView" destination="0Nn-mf-yfj" id="F6G-e3-Saa"/>
                         <outlet property="myIpLabel" destination="rN5-Rr-wrA" id="Go0-gG-HEZ"/>
+                        <outlet property="myTextView" destination="Zx5-7M-j1U" id="0iN-mS-0qN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
