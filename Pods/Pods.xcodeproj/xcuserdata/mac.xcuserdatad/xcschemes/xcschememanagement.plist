@@ -7,16 +7,12 @@
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<true/>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<true/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

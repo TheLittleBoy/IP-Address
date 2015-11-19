@@ -8,15 +8,22 @@
 
 import UIKit
 import NotificationCenter
+import Alamofire
 
 class TodayViewController: UIViewController, NCWidgetProviding {
-        
+    @IBOutlet weak var myActivityIndicatorView: UIActivityIndicatorView!
+    
+    let myIpUrl = "http://ip.taobao.com/service/getIpInfo2.php?ip=myip"
+    var request: Alamofire.Request?
+    
     @IBOutlet weak var myIpLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
         
         self.preferredContentSize = CGSizeMake(320, 64)
+        
+        self.requestMyIpInfo()
     }
     
     override func didReceiveMemoryWarning() {
@@ -30,8 +37,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        
-        myIpLabel.text = NSDate().description
 
         completionHandler(NCUpdateResult.NewData)
     }
@@ -55,4 +60,29 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         })
         
     }
+    
+    func requestMyIpInfo() {
+        
+        request?.cancel()
+        
+        self.myActivityIndicatorView.startAnimating()
+        
+        request = Alamofire.request(.GET, myIpUrl).responseJSON{ response in
+            
+            if let JSON = response.result.value {
+                print("JSON: \(JSON)")
+                
+                if let data = JSON["data"] as? NSDictionary
+                {
+                    let ip = data["ip"]
+                    print("my ip is : \(ip)")
+                    
+                    self.myIpLabel.text = ip as? String
+                }
+                
+                self.myActivityIndicatorView.stopAnimating()
+            }
+        }
+    }
+
 }
