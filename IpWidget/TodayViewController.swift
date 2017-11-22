@@ -21,7 +21,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
         
-        self.preferredContentSize = CGSizeMake(320, 64)
+        self.preferredContentSize = CGSize(width: 320, height: 64)
         
         self.requestMyIpInfo()
     }
@@ -38,7 +38,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
 
-        completionHandler(NCUpdateResult.NewData)
+        completionHandler(NCUpdateResult.newData)
     }
     
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> UIEdgeInsets {
@@ -49,13 +49,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         - bottom : 39.0
         - right : 0.0 { ... }
         */
-        return UIEdgeInsetsZero
+        return UIEdgeInsets.zero
         
     }
     
     @IBAction func ipLableTapAction(sender: AnyObject) {
         
-        self.extensionContext?.openURL(NSURL(string: "edu-edu.myip://")!, completionHandler: { (Bool) -> Void in
+        self.extensionContext?.open(NSURL(string: "edu-edu.myip://")! as URL, completionHandler: { (Bool) -> Void in
             //
         })
         
@@ -67,12 +67,12 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         self.myActivityIndicatorView.startAnimating()
         
-        request = Alamofire.request(.GET, myIpUrl).responseJSON{ response in
+        request = Alamofire.request(myIpUrl).responseJSON{ response in
             
-            if let JSON = response.result.value {
-                print("JSON: \(JSON)")
+            if let json = response.result.value as? NSDictionary{
+                print("JSON: \(json)")
                 
-                if let data = JSON["data"] as? NSDictionary
+                if let data = json["data"] as? NSDictionary
                 {
                     let ip = data["ip"]
                     print("my ip is : \(ip)")

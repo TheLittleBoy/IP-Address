@@ -35,11 +35,10 @@ class ViewController: UIViewController {
         self.myTextView.text = ""
         self.myActivityIndicatorView.startAnimating()
         
-        request = Alamofire.request(.GET, myIpUrl).responseJSON{ response in
+        request = Alamofire.request(myIpUrl).responseJSON{ response in
             
-            if let JSON = response.result.value {
+            if let JSON = response.result.value as? NSDictionary{
                 print("JSON: \(JSON)")
-                
                 
                 if let data = JSON["data"] as? NSDictionary
                 {
