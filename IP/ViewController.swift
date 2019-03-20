@@ -43,7 +43,7 @@ class ViewController: UIViewController {
                 if let data = JSON["data"] as? NSDictionary
                 {
                     let ip = data["ip"]
-                    print("my ip is : \(ip)")
+                    print("my ip is : \(String(describing: ip))")
                     
                     self.myIpLabel.text = ip as? String
                     
